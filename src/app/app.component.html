@@ -11,11 +11,18 @@
       <img src="../assets/icons/search-solid.svg" alt="Search" class="icon" />
       <input type="text" placeholder="Search for a country..." />
     </form>
-    <select name="countries" id="countries" class="filter__dropdown">
-      <option value="" disabled selected>Filter by Region</option>
-      <option *ngFor="let option of filterOptions" [value]="option">
-        {{ option | titlecase }}
-      </option>
-    </select>
+    <div class="dropdown">
+      <div class="dropdown__placeholder" (click)="toggleDropDown()">
+        <p>{{ currentFilter === "" ? "Filter by Region" : currentFilter }}</p>
+        <fa-icon [icon]="faCaretSquareDown"></fa-icon>
+      </div>
+      <div *ngIf="dropDown" class="dropdown__options">
+        <a *ngFor="let option of filterOptions" (click)="onFilter(option)">
+          {{ option }}
+        </a>
+      </div>
+    </div>
   </div>
+
+  <app-countries></app-countries>
 </main>

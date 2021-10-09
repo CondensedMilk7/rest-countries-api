@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { CountriesService } from './countries.service';
 
 @Component({
   selector: 'app-countries',
   templateUrl: './countries.component.html',
-  styleUrls: ['./countries.component.scss']
+  styleUrls: ['./countries.component.scss'],
 })
 export class CountriesComponent implements OnInit {
+  countries = {};
 
-  constructor() { }
+  constructor(private countriesService: CountriesService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.countriesService.getAllCountries().subscribe((countries) => {
+      this.countries = countries;
+      console.log(countries);
+    });
   }
-
 }

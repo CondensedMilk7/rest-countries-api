@@ -47,17 +47,39 @@ header {
     }
   }
 
-  .filter__dropdown {
-    border: none;
-    font-weight: bold;
+  .dropdown {
     box-shadow: 0 2px 8px rgb(235, 235, 235);
-    padding: 12px;
     width: 160px;
     background: $white;
     border-radius: 6px;
-  }
+    cursor: pointer;
+    position: relative;
 
-  .filter__dropdown:focus {
-    outline: none;
+    .dropdown__placeholder {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+    }
+
+    .dropdown__options {
+      position: absolute;
+      top: 3.4rem;
+      display: flex;
+      flex-direction: column;
+      background: $white;
+      width: 100%;
+      box-shadow: 0 2px 8px rgb(235, 235, 235);
+      border-radius: 6px;
+
+      a {
+        padding: 6px 12px;
+      }
+    }
   }
+}
+
+app-countries {
+  display: flex;
+  flex-wrap: wrap;
 }

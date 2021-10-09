@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faMoon } from '@fortawesome/free-regular-svg-icons';
+import { faMoon, faCaretSquareDown } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +9,20 @@ import { faMoon } from '@fortawesome/free-regular-svg-icons';
 export class AppComponent {
   title = 'rest-countries-api';
   faMoon = faMoon;
+  faCaretSquareDown = faCaretSquareDown;
 
-  filterOptions = ["africa", "america", "asia", "europe", "oceania"]
+  dropDown = false;
+  currentFilter: string = '';
+  filterOptions = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
 
   constructor() {}
+
+  toggleDropDown() {
+    this.dropDown = !this.dropDown;
+  }
+
+  onFilter(option: string) {
+    this.toggleDropDown();
+    this.currentFilter = option;
+  }
 }
