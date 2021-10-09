@@ -1,0 +1,26 @@
+@import "../../../variables";
+
+.card {
+  width: 300px;
+  margin: 20px;
+  box-shadow: 0 2px 8px rgb(235, 235, 235);
+  border-radius: 6px;
+  overflow: hidden;
+  background: $white;
+  min-height: 400px;
+
+  display: flex;
+  flex-direction: column;
+
+  img {
+    height: 180px;
+    width: auto;
+  }
+
+  .card__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-basis: content;
+  }
+}

@@ -7,15 +7,15 @@ import { CountriesService } from './countries.service';
   styleUrls: ['./countries.component.scss'],
 })
 export class CountriesComponent implements OnInit {
-  countries = {};
+  countries: any = [];
 
   constructor(private countriesService: CountriesService) {}
 
   ngOnInit() {
     this.countriesService
-      .getByField('all', ['name', 'population', 'capital'])
-      .subscribe((country) => {
-        console.log(country);
+      .getByField('all', ['name', 'flag', 'population', 'region', 'capital'])
+      .subscribe((countries) => {
+        this.countries = countries;
       });
   }
 }

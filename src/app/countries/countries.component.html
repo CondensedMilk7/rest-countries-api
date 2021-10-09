@@ -1,1 +1,6 @@
-<p>countries works!</p>
+<div class="container">
+  <app-country
+    *ngFor="let country of countries"
+    [country]="country"
+  ></app-country>
+</div>
