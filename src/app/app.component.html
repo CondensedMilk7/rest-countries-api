@@ -4,3 +4,18 @@
     <span><fa-icon [icon]="faMoon"></fa-icon></span> Dark Mode</a
   >
 </header>
+
+<main>
+  <div class="filter">
+    <form class="search">
+      <img src="../assets/icons/search-solid.svg" alt="Search" class="icon" />
+      <input type="text" placeholder="Search for a country..." />
+    </form>
+    <select name="countries" id="countries" class="filter__dropdown">
+      <option value="" disabled selected>Filter by Region</option>
+      <option *ngFor="let option of filterOptions" [value]="option">
+        {{ option | titlecase }}
+      </option>
+    </select>
+  </div>
+</main>

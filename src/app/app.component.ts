@@ -8,8 +8,9 @@ import { faMoon } from '@fortawesome/free-regular-svg-icons';
 })
 export class AppComponent {
   title = 'rest-countries-api';
-
   faMoon = faMoon;
+
+  filterOptions = ["africa", "america", "asia", "europe", "oceania"]
 
   constructor() {}
 }

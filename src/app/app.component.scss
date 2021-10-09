@@ -1,12 +1,63 @@
+@import "../variables";
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 16px 40px;
+  padding: 16px 4vw;
+  box-shadow: 0 2px 4px rgb(235, 235, 235);
+  background: $white;
 
   a {
     font-weight: bold;
     cursor: pointer;
+  }
+}
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 4vw;
+  width: 100%;
+
+  .search {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    padding: 0 12px;
+    box-shadow: 0 2px 8px rgb(235, 235, 235);
+    background: $white;
+    border-radius: 6px;
+
+    .icon {
+      width: 16px;
+      margin: 0 8px;
+    }
+
+    input {
+      border: none;
+      margin: 0 8px;
+      padding: 1rem;
+      color: $dark-gray;
+    }
+    input:focus {
+      outline: none;
+    }
+  }
+
+  .filter__dropdown {
+    border: none;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgb(235, 235, 235);
+    padding: 12px;
+    width: 160px;
+    background: $white;
+    border-radius: 6px;
+  }
+
+  .filter__dropdown:focus {
+    outline: none;
   }
 }
