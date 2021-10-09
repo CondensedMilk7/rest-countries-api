@@ -13,7 +13,7 @@ export class CountriesComponent implements OnInit {
 
   ngOnInit() {
     this.countriesService
-      .getCountry('peru', ['population'])
+      .getByField('all', ['name', 'population', 'capital'])
       .subscribe((country) => {
         console.log(country);
       });

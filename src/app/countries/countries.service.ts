@@ -13,22 +13,25 @@ export class CountriesService {
   //   return this.http.get('https://restcountries.com/v2/name/' + name);
   // }
 
-  getCountry(country: string, fields?: string[]) {
+  getByContinent(continent: string) {
+    return this.http.get('https://restcountries.com/v2/continent/' + continent);
+  }
+
+  getByField(country: string, fields: string[]) {
     let query = '';
-    if (fields && country != 'all') {
-      let fieldsJoined = '';
-      // Adds up to create query
-      for (let field of fields) {
-        fieldsJoined += field + ',';
-      }
+    let fieldsJoined = '';
+
+    // Adds up to create query
+    for (let field of fields) {
+      fieldsJoined += field + ',';
+    }
+
+    if (country != 'all') {
       query = `https://restcountries.com/v2/name/${country}?fields=${fieldsJoined}`;
+    } else {
+      query = 'https://restcountries.com/v2/all?fields=' + fieldsJoined;
     }
-    if (!fields && country != 'all') {
-      query = `https://restcountries.com/v2/name/${country}`;
-    }
-    if (country === 'all') {
-      query = 'https://restcountries.com/v2/all/?fields=' + fields;
-    }
+
     return this.http.get(query);
   }
 }
