@@ -7,20 +7,35 @@
   border-radius: 6px;
   overflow: hidden;
   background: $white;
-  min-height: 400px;
+  min-height: 360px;
 
   display: flex;
   flex-direction: column;
 
-  img {
-    height: 180px;
-    width: auto;
+  .img {
+    height: 170px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
   }
 
   .card__description {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex-basis: content;
+    flex-grow: 1;
+    padding: 8px 12px;
+
+    h3 {
+      margin: 0 0 10px 0;
+    }
+
+    p {
+      margin: 2px 0;
+
+      span {
+        color: $dark-gray;
+      }
+    }
   }
 }
