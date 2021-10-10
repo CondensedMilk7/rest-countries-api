@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class CountriesService {
+  filter = new Subject<string>();
+
   constructor(private http: HttpClient) {}
 
   getAllCountries() {
@@ -14,7 +17,7 @@ export class CountriesService {
   // }
 
   getByContinent(continent: string) {
-    return this.http.get('https://restcountries.com/v2/continent/' + continent);
+    return this.http.get('https://restcountries.com/v2/continent/' + continent.toLowerCase());
   }
 
   getByField(country: string, fields: string[]) {

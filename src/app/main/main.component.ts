@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faMoon, faCaretSquareDown } from '@fortawesome/free-regular-svg-icons';
+import { CountriesService } from '../countries/countries.service';
 
 @Component({
   selector: 'app-main',
@@ -15,9 +16,9 @@ export class MainComponent implements OnInit {
 
   dropDown = false;
   currentFilter: string = '';
-  filterOptions = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
+  filterOptions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
-  constructor() {}
+  constructor(private countriesService: CountriesService) {}
 
   ngOnInit(): void {}
 
@@ -28,5 +29,6 @@ export class MainComponent implements OnInit {
   onFilter(option: string) {
     this.toggleDropDown();
     this.currentFilter = option;
+    this.countriesService.filter.next(option);
   }
 }
