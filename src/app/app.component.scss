@@ -8,6 +8,9 @@ header {
   padding: 16px 4vw;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.103);
   background: $white;
+  position: fixed;
+  top: 0;
+  left: 0;
 
   .logo {
     cursor: pointer;
@@ -17,4 +20,9 @@ header {
     font-weight: bold;
     cursor: pointer;
   }
+}
+
+.container {
+  padding-top: 7rem;
+  min-height: 100%;
 }

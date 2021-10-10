@@ -1,21 +1,19 @@
-<main>
-  <div class="filter">
-    <form class="search">
-      <img src="../assets/icons/search-solid.svg" alt="Search" class="icon" />
-      <input type="text" placeholder="Search for a country..." />
-    </form>
-    <div class="dropdown">
-      <div class="dropdown__placeholder" (click)="toggleDropDown()">
-        <p>{{ currentFilter === "" ? "Filter by Region" : currentFilter }}</p>
-        <fa-icon [icon]="faCaretSquareDown"></fa-icon>
-      </div>
-      <div *ngIf="dropDown" class="dropdown__options">
-        <a *ngFor="let option of filterOptions" (click)="onFilter(option)">
-          {{ option }}
-        </a>
-      </div>
+<div class="actions">
+  <form class="search">
+    <img src="../assets/icons/search-solid.svg" alt="Search" class="icon" />
+    <input type="text" placeholder="Search for a country..." />
+  </form>
+  <div class="dropdown">
+    <div class="dropdown__placeholder" (click)="toggleDropDown()">
+      <p>{{ currentFilter === "" ? "Filter by Region" : currentFilter }}</p>
+      <fa-icon [icon]="faCaretSquareDown"></fa-icon>
+    </div>
+    <div *ngIf="dropDown" class="dropdown__options">
+      <a *ngFor="let option of filterOptions" (click)="onFilter(option)">
+        {{ option }}
+      </a>
     </div>
   </div>
+</div>
 
-    <app-countries  ></app-countries>
-</main>
+<app-countries></app-countries>

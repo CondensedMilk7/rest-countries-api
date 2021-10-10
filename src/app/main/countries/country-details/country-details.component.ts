@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CountriesService } from '../countries.service';
-import { map } from 'rxjs/operators';
+import { faArrowAltCircleLeft } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-country-details',
@@ -10,6 +10,8 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./country-details.component.scss'],
 })
 export class CountryDetailsComponent implements OnInit, OnDestroy {
+  faArrowAltCircleLeft = faArrowAltCircleLeft;
+
   countryName = '';
   country: any = {};
   bordersCodes = [];
