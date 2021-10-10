@@ -11,9 +11,13 @@ header {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 10;
 
   .logo {
     cursor: pointer;
+    @media (max-width: 500px) {
+      font-size: 1.2rem;
+    }
   }
 
   a {

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { CountriesService } from '../countries.service';
+import { CountriesService } from '../main/countries/countries.service';
 import { faArrowAltCircleLeft } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
@@ -12,6 +12,8 @@ import { faArrowAltCircleLeft } from '@fortawesome/free-regular-svg-icons';
 export class CountryDetailsComponent implements OnInit, OnDestroy {
   faArrowAltCircleLeft = faArrowAltCircleLeft;
 
+  isLoading = true;
+
   countryName = '';
   country: any = {};
   bordersCodes = [];
@@ -20,38 +22,38 @@ export class CountryDetailsComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private countriesService: CountriesService
+    private countriesService: CountriesService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.countryName = params.country;
+      this.isLoading = true;
+      this.countriesService
+        .getByField(params.country, [
+          'name',
+          'nativeName',
+          'flag',
+          'population',
+          'region',
+          'subregion',
+          'capital',
+          'topLevelDomain',
+          'currencies',
+          'languages',
+          'borders',
+        ])
+        .subscribe((data) => {
+          // Why are you making me do this TypeScript?
+          this.country = data;
+          this.country = this.country[0];
+          if (this.country.borders.length > 0) {
+            this.bordersCodes = this.country.borders;
+            this.getBorderCountries(this.bordersCodes);
+          }
+          this.isLoading = false;
+        });
     });
-
-    this.countriesService
-      .getByField(this.countryName, [
-        'name',
-        'nativeName',
-        'flag',
-        'population',
-        'region',
-        'subregion',
-        'capital',
-        'topLevelDomain',
-        'currencies',
-        'languages',
-        'borders',
-      ])
-      .subscribe((data) => {
-        // Why are you making me do this TypeScript?
-        this.country = data;
-        this.country = this.country[0];
-        if (this.country.borders.length > 0) {
-          this.bordersCodes = this.country.borders;
-          this.getBorderCountries(this.bordersCodes);
-        }
-        // this.borderCountries = this.getBorderCountries(this.bordersCodes);
-      });
   }
 
   // What abomination is this
@@ -65,6 +67,10 @@ export class CountryDetailsComponent implements OnInit, OnDestroy {
       }
       this.borderCountries = borderNames;
     });
+  }
+
+  onNavigate(country: string) {
+    this.router.navigate(['/' + country]);
   }
 
   ngOnDestroy() {

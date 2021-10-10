@@ -1,0 +1,64 @@
+@import "../../variables";
+
+.actions {
+  height: 80px;
+}
+
+.country-details {
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+
+  .img {
+    background-size: cover;
+    background-position: center;
+    width: 630px;
+    height: 420px;
+  }
+
+  .stats {
+    padding: 0 50px;
+    max-width: 620px;
+
+    h1 {
+      margin-bottom: 24px;
+    }
+
+    p {
+      font-weight: 700;
+      line-height: 2.2rem;
+      span {
+        font-weight: 300;
+      }
+    }
+  }
+
+  .border-countries {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 48px;
+
+    .border-country {
+      font-weight: 500;
+      padding: 8px;
+      border-radius: 4px;
+      box-shadow: 0 0px 6px rgba(0, 0, 0, 0.164);
+      margin: 4px 6px 10px 4px;
+      cursor: pointer;
+      flex-grow: 1;
+    }
+  }
+}
+
+.two-columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+app-spinner {
+  position: absolute;
+  transform: translateX(46vw) translateY(25vh);
+}

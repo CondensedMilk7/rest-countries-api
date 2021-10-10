@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { faMoon, faCaretSquareDown } from '@fortawesome/free-regular-svg-icons';
 import { CountriesService } from './countries/countries.service';
 
@@ -21,8 +20,6 @@ export class MainComponent implements OnInit {
 
   constructor(
     private countriesService: CountriesService,
-    private router: Router,
-    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {}

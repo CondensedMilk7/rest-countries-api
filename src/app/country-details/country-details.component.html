@@ -1,0 +1,61 @@
+<!-- <div class="actions">
+  <a> <fa-icon [icon]="faArrowAltCircleLeft"></fa-icon> Back</a>
+</div> -->
+<app-spinner *ngIf="isLoading"></app-spinner>
+<div class="country-details" *ngIf="!isLoading">
+  <div class="img" [style.background-image]="'url(' + country.flag + ')'"></div>
+  <div class="stats">
+    <h1>{{ country.name }}</h1>
+    <div class="two-columns">
+      <div class="block-1">
+        <p>
+          Native Name: <span>{{ country.nativeName }}</span>
+        </p>
+        <p>
+          Population: <span>{{ country.population }}</span>
+        </p>
+        <p>
+          Region: <span>{{ country.region }}</span>
+        </p>
+        <p>
+          Sub Region: <span>{{ country.subregion }}</span>
+        </p>
+        <p>
+          Capital: <span>{{ country.capital }}</span>
+          <span *ngIf="!country.capital">N/A</span>
+        </p>
+      </div>
+      <div class="block-2">
+        <p>
+          Top Level Domain:
+          <span *ngFor="let domain of country.topLevelDomain">
+            {{ domain }}
+          </span>
+        </p>
+        <p>
+          Currency:
+          <span *ngFor="let currency of country.currencies; let isLast = last"
+            >{{ currency.name }}{{ isLast ? " " : ", " }}</span
+          >
+        </p>
+        <p>
+          Languages:
+          <span *ngFor="let language of country.languages; let isLast = last">
+            {{ language.name }}{{ isLast ? " " : ", " }}
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="border-countries">
+      <p>Border Countries:</p>
+      <p
+        class="border-country"
+        *ngFor="let country of borderCountries"
+        (click)="onNavigate(country)"
+      >
+        {{ country }}
+      </p>
+      <p *ngIf="borderCountries.length < 1">None</p>
+    </div>
+  </div>
+</div>
