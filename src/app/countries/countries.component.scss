@@ -4,3 +4,13 @@
   justify-content: space-evenly;
   padding: 0 12px;
 }
+
+app-spinner {
+  position: absolute;
+  top: 50wh;
+  left: 46vw;
+}
+
+app-error {
+  text-align: center;
+}

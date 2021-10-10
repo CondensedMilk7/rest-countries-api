@@ -1,0 +1,81 @@
+@import "../../variables";
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 16px 4vw;
+  box-shadow: 0 2px 4px rgb(235, 235, 235);
+  background: $white;
+
+  a {
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 4vw;
+  width: 100%;
+  flex-wrap: wrap;
+
+  .search {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    padding: 0 12px;
+    box-shadow: 0 2px 8px rgb(235, 235, 235);
+    background: $white;
+    border-radius: 6px;
+
+    .icon {
+      width: 16px;
+      margin: 0 8px;
+    }
+
+    input {
+      border: none;
+      margin: 0 8px;
+      padding: 1rem;
+      color: $dark-gray;
+    }
+    input:focus {
+      outline: none;
+    }
+  }
+
+  .dropdown {
+    box-shadow: 0 2px 8px rgb(235, 235, 235);
+    width: 160px;
+    background: $white;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+
+    .dropdown__placeholder {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+    }
+
+    .dropdown__options {
+      position: absolute;
+      top: 3.4rem;
+      display: flex;
+      flex-direction: column;
+      background: $white;
+      width: 100%;
+      box-shadow: 0 2px 8px rgb(235, 235, 235);
+      border-radius: 6px;
+
+      a {
+        padding: 6px 12px;
+      }
+    }
+  }
+}

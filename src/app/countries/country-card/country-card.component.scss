@@ -12,6 +12,14 @@
   display: flex;
   flex-direction: column;
 
+  cursor: pointer;
+
+  transition: transform 100ms ease-in-out;
+
+  &:hover {
+    transform: translateY(-8px);
+  }
+
   .img {
     height: 170px;
     width: 100%;

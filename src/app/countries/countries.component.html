@@ -1,4 +1,6 @@
-<div class="container">
+<app-spinner *ngIf="isLoading"></app-spinner>
+<app-error *ngIf="isError"></app-error>
+<div class="container" *ngIf="!isLoading">
   <app-country
     *ngFor="let country of countries"
     [country]="country"
