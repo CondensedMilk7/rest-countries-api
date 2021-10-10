@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { __classPrivateFieldGet } from 'tslib';
 import { CountriesService } from './countries.service';
@@ -16,7 +17,10 @@ export class CountriesComponent implements OnInit, OnDestroy {
 
   filterSub = new Subscription();
 
-  constructor(private countriesService: CountriesService) {}
+  constructor(
+    private countriesService: CountriesService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.countriesService

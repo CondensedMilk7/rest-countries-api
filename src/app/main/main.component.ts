@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faMoon, faCaretSquareDown } from '@fortawesome/free-regular-svg-icons';
-import { CountriesService } from '../countries/countries.service';
+import { CountriesService } from './countries/countries.service';
 
 @Component({
   selector: 'app-main',
@@ -18,7 +19,11 @@ export class MainComponent implements OnInit {
   currentFilter: string = '';
   filterOptions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
-  constructor(private countriesService: CountriesService) {}
+  constructor(
+    private countriesService: CountriesService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {}
 
@@ -30,5 +35,8 @@ export class MainComponent implements OnInit {
     this.toggleDropDown();
     this.currentFilter = option;
     this.countriesService.filter.next(option);
+
+    // failed attempt to implement routing, cannot access route params from countries.component.ts
+    // this.router.navigate(['/countries/' + option]);
   }
 }
