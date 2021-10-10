@@ -12,22 +12,23 @@ export class CountriesService {
     return this.http.get('https://restcountries.com/v2/all');
   }
 
+  getByName(name: string) {
+    return this.http.get('https://restcountries.com/v2/name/' + name);
+  }
+
   // getCountry(name: string) {
   //   return this.http.get('https://restcountries.com/v2/name/' + name);
   // }
 
   getByContinent(continent: string) {
-    return this.http.get('https://restcountries.com/v2/continent/' + continent.toLowerCase());
+    return this.http.get(
+      'https://restcountries.com/v2/continent/' + continent.toLowerCase()
+    );
   }
 
   getByField(country: string, fields: string[]) {
     let query = '';
-    let fieldsJoined = '';
-
-    // Adds up to create query
-    for (let field of fields) {
-      fieldsJoined += field + ',';
-    }
+    let fieldsJoined = this.joinFields(fields);
 
     if (country != 'all') {
       query = `https://restcountries.com/v2/name/${country}?fields=${fieldsJoined}`;
@@ -36,5 +37,20 @@ export class CountriesService {
     }
 
     return this.http.get(query);
+  }
+
+  getByCode(codes: string[]) {
+    return this.http.get(
+      'https://restcountries.com/v2/alpha?codes=' + this.joinFields(codes)
+    );
+  }
+
+  // Adds up query fields into a single string - "arg1,arg2,arg3,"
+  private joinFields(fields: string[]) {
+    let fieldsJoined = '';
+    for (let field of fields) {
+      fieldsJoined += field + ',';
+    }
+    return fieldsJoined;
   }
 }

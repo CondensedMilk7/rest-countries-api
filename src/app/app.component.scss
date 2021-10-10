@@ -1,0 +1,20 @@
+@import "../variables";
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 16px 4vw;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.103);
+  background: $white;
+
+  .logo {
+    cursor: pointer;
+  }
+
+  a {
+    font-weight: bold;
+    cursor: pointer;
+  }
+}

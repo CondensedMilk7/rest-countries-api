@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faMoon } from '@fortawesome/free-regular-svg-icons';
 
 
 @Component({
@@ -7,9 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-
+  faMoon = faMoon;
 
   constructor() {}
-
-
 }

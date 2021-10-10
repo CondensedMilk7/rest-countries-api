@@ -1,20 +1,5 @@
 @import "../../variables";
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 16px 4vw;
-  box-shadow: 0 2px 4px rgb(235, 235, 235);
-  background: $white;
-
-  a {
-    font-weight: bold;
-    cursor: pointer;
-  }
-}
-
 .filter {
   display: flex;
   justify-content: space-between;
@@ -28,7 +13,7 @@ header {
     align-items: center;
     width: 300px;
     padding: 0 12px;
-    box-shadow: 0 2px 8px rgb(235, 235, 235);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.103);
     background: $white;
     border-radius: 6px;
 
@@ -49,7 +34,7 @@ header {
   }
 
   .dropdown {
-    box-shadow: 0 2px 8px rgb(235, 235, 235);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.103);
     width: 160px;
     background: $white;
     border-radius: 6px;
@@ -70,7 +55,7 @@ header {
       flex-direction: column;
       background: $white;
       width: 100%;
-      box-shadow: 0 2px 8px rgb(235, 235, 235);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.103);
       border-radius: 6px;
 
       a {
