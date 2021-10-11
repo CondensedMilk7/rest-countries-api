@@ -10,7 +10,8 @@ import { ColorPalette, ThemeService } from '../theme.service';
 export class MainComponent implements OnInit, OnDestroy {
   darkModeSub = new Subscription();
 
-  colors: ColorPalette = this.themeService.darkModeColors;
+  colors: ColorPalette;
+  isDark = this.themeService.darkModeOn;
 
   searchText = '';
 
@@ -23,8 +24,11 @@ export class MainComponent implements OnInit, OnDestroy {
   constructor(private themeService: ThemeService) {}
 
   ngOnInit() {
+    this.colors = this.themeService.getColors();
+    this.isDark = this.themeService.darkModeOn; // needed to change icon colors when reloading components
     this.darkModeSub = this.themeService.isDark.subscribe((colors) => {
       this.colors = colors;
+      this.isDark = this.themeService.darkModeOn;
     });
   }
 

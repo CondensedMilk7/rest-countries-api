@@ -1,5 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { ColorPalette } from 'src/app/theme.service';
 import { __classPrivateFieldGet } from 'tslib';
 import { CountriesService } from './countries.service';
 
@@ -11,6 +12,7 @@ import { CountriesService } from './countries.service';
 export class CountriesComponent implements OnInit, OnDestroy {
   @Input() searchText: string;
   @Input() selectedRegion: string;
+  @Input() colors: ColorPalette;
 
   countries: any = [];
 

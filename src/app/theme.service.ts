@@ -35,4 +35,12 @@ export class ThemeService {
       ? this.isDark.next(this.darkModeColors)
       : this.isDark.next(this.lightModeColors);
   }
+
+  getColors() {
+    if (this.darkModeOn) {
+      return this.darkModeColors;
+    } else {
+      return this.lightModeColors;
+    }
+  }
 }

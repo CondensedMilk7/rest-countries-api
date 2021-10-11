@@ -1,4 +1,4 @@
-<header [style.backgroundColor]="colors.elements">
+<header [style.backgroundColor]="colors.elements" [style.color]="colors.text">
   <h1 class="logo" routerLink="/">Where in the world?</h1>
   <a (click)="toggleDarkMode()">
     <img
@@ -13,6 +13,6 @@
     Dark Mode</a
   >
 </header>
-<div class="container">
+<div class="container" [style.backgroundColor]="colors.background">
   <router-outlet></router-outlet>
 </div>

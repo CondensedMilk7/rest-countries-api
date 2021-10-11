@@ -37,5 +37,7 @@ header {
 
 .container {
   padding-top: 7rem;
-  min-height: 100%;
+  min-height: 100vh;
+  background: $very-light-gray;
+  transition: background 200ms ease-out;
 }

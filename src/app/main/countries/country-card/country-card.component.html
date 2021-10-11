@@ -1,7 +1,11 @@
-<div class="card" [routerLink]="'/' + country.name">
+<div
+  class="card"
+  [routerLink]="'/' + country.name"
+  [style.backgroundColor]="colors.elements"
+>
   <!--  <img [src]="country.flag" [alt]="country.name" />-->
   <div class="img" [style.background-image]="'url(' + country.flag + ')'"></div>
-  <div class="card__description">
+  <div class="card__description" [style.color]="colors.text">
     <h3>{{ country.name }}</h3>
     <p>
       Population: <span>{{ country.population }}</span>

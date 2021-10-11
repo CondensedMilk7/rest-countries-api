@@ -1,15 +1,24 @@
 <div class="actions">
-  <a routerLink="/">
+  <a
+    routerLink="/"
+    [style.backgroundColor]="colors.elements"
+    [style.color]="colors.text"
+  >
     <img
-      src="../../assets/icons/arrow-left-solid.svg"
+      [src]="
+        !isDark
+          ? '../../../../assets/icons/arrow-left-solid.svg'
+          : '../../../../assets/icons/arrow-left-solid-white.svg'
+      "
       alt="arrow"
       class="icon"
     />
     Back</a
   >
 </div>
-<app-spinner *ngIf="isLoading"></app-spinner>
-<div class="country-details" *ngIf="!isLoading">
+<app-spinner *ngIf="isLoading && !error"></app-spinner>
+<app-error *ngIf="error"></app-error>
+<div class="country-details" *ngIf="!isLoading" [style.color]="colors.text">
   <div class="img" [style.background-image]="'url(' + country.flag + ')'"></div>
   <div class="stats">
     <h1>{{ country.name }}</h1>
@@ -59,6 +68,7 @@
         class="border-country"
         *ngFor="let country of borderCountries"
         (click)="onNavigate(country)"
+        [style.backgroundColor]="colors.elements"
       >
         {{ country }}
       </p>

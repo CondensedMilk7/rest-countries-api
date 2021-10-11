@@ -1,22 +1,43 @@
 <div class="actions">
-  <div class="search" [style.backgroundColor]="">
-    <img src="../assets/icons/search-solid.svg" alt="Search" class="icon" />
+  <div class="search" [style.backgroundColor]="colors.elements">
+    <img
+      [src]="
+        !isDark
+          ? '../assets/icons/search-solid.svg'
+          : '../../assets/icons/search-solid-white.svg'
+      "
+      alt="Search"
+      class="icon"
+    />
     <input
       type="text"
       placeholder="Search for a country..."
       [(ngModel)]="searchText"
+      [style.color]="colors.text"
     />
   </div>
-  <div class="dropdown">
+  <div
+    class="dropdown"
+    [style.backgroundColor]="colors.elements"
+    [style.color]="colors.text"
+  >
     <div class="dropdown__placeholder" (click)="toggleDropDown()">
       <p>{{ selectedRegion === "" ? "Filter by Region" : selectedRegion }}</p>
       <img
-        src="../../assets/icons/chevron-down-solid.svg"
+        [src]="
+          !isDark
+            ? '../../assets/icons/chevron-down-solid.svg'
+            : '../../assets/icons/chevron-down-solid-white.svg'
+        "
         alt=""
         class="icon"
       />
     </div>
-    <div *ngIf="dropDown" class="dropdown__options">
+    <div
+      *ngIf="dropDown"
+      class="dropdown__options"
+      [style.backgroundColor]="colors.elements"
+    >
       <a *ngFor="let option of filterOptions" (click)="onFilter(option)">
         {{ option }}
       </a>
@@ -27,4 +48,5 @@
 <app-countries
   [searchText]="searchText"
   [selectedRegion]="selectedRegion"
+  [colors]="colors"
 ></app-countries>

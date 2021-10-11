@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ColorPalette } from 'src/app/theme.service';
 
 @Component({
   selector: 'app-country',
@@ -7,7 +8,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CountryCardComponent implements OnInit {
   @Input() country: any;
+  @Input() colors: ColorPalette;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 }
