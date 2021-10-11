@@ -1,13 +1,13 @@
-### Rest Countries API
+## Rest Countries API
 
-[](./screenshot.png)
+[](./Screenshot.png)
 
-## Tools used:
+### Tools used:
 
 Framework: Angular
 Styles: SCSS
 
-## Features:
+### Features:
 
 Routing, Error Handling, Live Search Filter, Responsive Design, Color Theme Switch.
 
