@@ -1,7 +1,30 @@
-@import "../../variables";
+@import "../../../../variables";
 
-.actions {
-  height: 80px;
+a {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 12px 24px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.103);
+  cursor: pointer;
+  z-index: 2;
+  position: absolute;
+  left: 5vw;
+  text-decoration: none;
+  color: black;
+  background: $white;
+  transition: box-shadow 100ms linear;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.103);
+  }
+  .icon {
+    width: 1.2rem;
+    margin-right: 16px;
+  }
 }
 
 .country-details {

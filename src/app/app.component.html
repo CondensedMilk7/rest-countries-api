@@ -1,7 +1,16 @@
-<header>
+<header [style.backgroundColor]="colors.elements">
   <h1 class="logo" routerLink="/">Where in the world?</h1>
-  <a>
-    <span><fa-icon [icon]="faMoon"></fa-icon></span> Dark Mode</a
+  <a (click)="toggleDarkMode()">
+    <img
+      [src]="
+        !darkMode
+          ? '../assets/icons/moon-regular.svg'
+          : '../assets/icons/moon-solid.svg'
+      "
+      alt="moon"
+      class="icon"
+    />
+    Dark Mode</a
   >
 </header>
 <div class="container">

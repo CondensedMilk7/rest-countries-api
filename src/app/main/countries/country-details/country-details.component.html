@@ -1,6 +1,13 @@
-<!-- <div class="actions">
-  <a> <fa-icon [icon]="faArrowAltCircleLeft"></fa-icon> Back</a>
-</div> -->
+<div class="actions">
+  <a routerLink="/">
+    <img
+      src="../../assets/icons/arrow-left-solid.svg"
+      alt="arrow"
+      class="icon"
+    />
+    Back</a
+  >
+</div>
 <app-spinner *ngIf="isLoading"></app-spinner>
 <div class="country-details" *ngIf="!isLoading">
   <div class="img" [style.background-image]="'url(' + country.flag + ')'"></div>
@@ -47,7 +54,7 @@
       </div>
     </div>
     <div class="border-countries">
-      <p>Border Countries: </p>
+      <p>Border Countries:</p>
       <p
         class="border-country"
         *ngFor="let country of borderCountries"
@@ -55,7 +62,7 @@
       >
         {{ country }}
       </p>
-      <p *ngIf="borderCountries.length < 1"> None</p>
+      <p *ngIf="borderCountries.length < 1">None</p>
     </div>
   </div>
 </div>

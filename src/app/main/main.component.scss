@@ -16,6 +16,12 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.103);
     background: $white;
     border-radius: 6px;
+    transition: box-shadow 100ms linear, background 200ms ease-out;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.103);
+    }
 
     .icon {
       width: 16px;
@@ -27,6 +33,8 @@
       margin: 0 8px;
       padding: 1rem;
       color: $dark-gray;
+      flex-grow: 1;
+      background: transparent;
     }
     input:focus {
       outline: none;
@@ -40,6 +48,15 @@
     border-radius: 6px;
     cursor: pointer;
     position: relative;
+    transition: box-shadow 100ms linear, background 200ms ease-out;
+    &:hover,
+    &:focus {
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.103);
+    }
+
+    .icon {
+      width: 1rem;
+    }
 
     .dropdown__placeholder {
       display: flex;

@@ -15,6 +15,7 @@ html {
 body {
   background: $very-light-gray;
   min-height: 100vh;
+  transition: background 200ms ease-out;
 }
 
 app-country {

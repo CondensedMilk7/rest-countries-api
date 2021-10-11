@@ -1,5 +1,5 @@
 <div class="actions">
-  <div class="search">
+  <div class="search" [style.backgroundColor]="">
     <img src="../assets/icons/search-solid.svg" alt="Search" class="icon" />
     <input
       type="text"
@@ -10,7 +10,11 @@
   <div class="dropdown">
     <div class="dropdown__placeholder" (click)="toggleDropDown()">
       <p>{{ selectedRegion === "" ? "Filter by Region" : selectedRegion }}</p>
-      <fa-icon [icon]="faCaretSquareDown"></fa-icon>
+      <img
+        src="../../assets/icons/chevron-down-solid.svg"
+        alt=""
+        class="icon"
+      />
     </div>
     <div *ngIf="dropDown" class="dropdown__options">
       <a *ngFor="let option of filterOptions" (click)="onFilter(option)">
@@ -20,4 +24,7 @@
   </div>
 </div>
 
-<app-countries [searchText]="searchText" [selectedRegion]="selectedRegion" ></app-countries>
+<app-countries
+  [searchText]="searchText"
+  [selectedRegion]="selectedRegion"
+></app-countries>

@@ -30,7 +30,6 @@ export class CountriesComponent implements OnInit, OnDestroy {
           this.isLoading = false;
           // If error was previously shown, this will make it disappear
           this.isError = false;
-          console.log(countries);
         },
         (error) => {
           this.showError(error);

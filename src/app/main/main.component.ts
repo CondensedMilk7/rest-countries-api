@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { faMoon, faCaretSquareDown } from '@fortawesome/free-regular-svg-icons';
-import { CountriesService } from './countries/countries.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ColorPalette, ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
-export class MainComponent implements OnInit {
-  title = 'rest-countries-api';
-  faMoon = faMoon;
-  faCaretSquareDown = faCaretSquareDown;
+export class MainComponent implements OnInit, OnDestroy {
+  darkModeSub = new Subscription();
+
+  colors: ColorPalette = this.themeService.darkModeColors;
 
   searchText = '';
 
@@ -20,9 +20,13 @@ export class MainComponent implements OnInit {
   selectedRegion: string = '';
   filterOptions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
-  constructor(private countriesService: CountriesService) {}
+  constructor(private themeService: ThemeService) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.darkModeSub = this.themeService.isDark.subscribe((colors) => {
+      this.colors = colors;
+    });
+  }
 
   toggleDropDown() {
     this.dropDown = !this.dropDown;
@@ -34,5 +38,9 @@ export class MainComponent implements OnInit {
 
     // failed attempt to implement routing, cannot access route params from countries.component.ts
     // this.router.navigate(['/countries/' + option]);
+  }
+
+  ngOnDestroy() {
+    this.darkModeSub.unsubscribe();
   }
 }

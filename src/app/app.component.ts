@@ -1,14 +1,33 @@
-import { Component } from '@angular/core';
-import { faMoon } from '@fortawesome/free-regular-svg-icons';
-
+import { Component, OnInit } from '@angular/core';
+import { ColorPalette, ThemeService } from './theme.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  faMoon = faMoon;
+export class AppComponent implements OnInit {
+  title = 'rest-countries-api';
 
-  constructor() {}
+  darkMode = false;
+
+  colors: ColorPalette = {
+    elements: '',
+    background: '',
+    text: '',
+  };
+
+  constructor(private themeService: ThemeService) {}
+
+  ngOnInit() {}
+
+  toggleDarkMode() {
+    this.themeService.toggleDarkTheme();
+    this.darkMode = this.themeService.darkModeOn;
+    if (this.themeService.darkModeOn) {
+      this.colors = this.themeService.darkModeColors;
+    } else {
+      this.colors = this.themeService.lightModeColors;
+    }
+  }
 }

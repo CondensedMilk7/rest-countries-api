@@ -14,10 +14,11 @@
 
   cursor: pointer;
 
-  transition: transform 100ms ease-in-out;
+  transition: all 100ms ease-in-out, background 200ms ease-out;
 
   &:hover {
     transform: translateY(-8px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.103);
   }
 
   .img {
