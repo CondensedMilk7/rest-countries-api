@@ -11,11 +11,7 @@ export class AppComponent implements OnInit {
 
   darkMode = false;
 
-  colors: ColorPalette = {
-    elements: '',
-    background: '',
-    text: '',
-  };
+  colors: ColorPalette = this.themeService.getColors();
 
   constructor(private themeService: ThemeService) {}
 

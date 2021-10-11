@@ -15,10 +15,6 @@ export class CountriesService {
     return this.http.get('https://restcountries.com/v2/name/' + name);
   }
 
-  // getCountry(name: string) {
-  //   return this.http.get('https://restcountries.com/v2/name/' + name);
-  // }
-
   getByContinent(continent: string) {
     return this.http.get(
       'https://restcountries.com/v2/continent/' + continent.toLowerCase()

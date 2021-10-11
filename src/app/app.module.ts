@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CountriesComponent } from './main/countries/countries.component';
 import { CountryCardComponent } from './main/countries/country-card/country-card.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ErrorComponent } from './error/error.component';
 import { CountryDetailsComponent } from './main/countries/country-details/country-details.component';
@@ -38,9 +37,8 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    FontAwesomeModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
