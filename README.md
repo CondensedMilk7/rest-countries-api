@@ -1,6 +1,4 @@
-## Rest Countries API
-
-[](./Screenshot.png)
+## REST Countries API
 
 ### Tools used:
 
