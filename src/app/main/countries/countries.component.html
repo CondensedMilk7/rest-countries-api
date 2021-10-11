@@ -2,7 +2,11 @@
 <app-error *ngIf="isError"></app-error>
 <div class="container" *ngIf="!isLoading">
   <app-country
-    *ngFor="let country of countries"
+    *ngFor="
+      let country of countries
+        | search: selectedRegion:'region'
+        | search: searchText:'name'
+    "
     [country]="country"
   ></app-country>
 </div>

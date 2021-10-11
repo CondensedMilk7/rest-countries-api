@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CountriesComponent } from './main/countries/countries.component';
@@ -11,6 +12,7 @@ import { ErrorComponent } from './error/error.component';
 import { CountryDetailsComponent } from './country-details/country-details.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
+import { SearchPipe } from './search.pipe';
 
 const routes: Routes = [
   // {
@@ -31,12 +33,14 @@ const routes: Routes = [
     ErrorComponent,
     CountryDetailsComponent,
     MainComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FontAwesomeModule,
     RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { __classPrivateFieldGet } from 'tslib';
 import { CountriesService } from './countries.service';
@@ -9,6 +9,9 @@ import { CountriesService } from './countries.service';
   styleUrls: ['./countries.component.scss'],
 })
 export class CountriesComponent implements OnInit, OnDestroy {
+  @Input() searchText: string;
+  @Input() selectedRegion: string;
+
   countries: any = [];
 
   isLoading = true;
@@ -16,9 +19,7 @@ export class CountriesComponent implements OnInit, OnDestroy {
 
   filterSub = new Subscription();
 
-  constructor(
-    private countriesService: CountriesService,
-  ) {}
+  constructor(private countriesService: CountriesService) {}
 
   ngOnInit() {
     this.countriesService
@@ -29,27 +30,12 @@ export class CountriesComponent implements OnInit, OnDestroy {
           this.isLoading = false;
           // If error was previously shown, this will make it disappear
           this.isError = false;
+          console.log(countries);
         },
         (error) => {
           this.showError(error);
         }
       );
-
-    // Reacts to filter by region
-    this.filterSub = this.countriesService.filter.subscribe((filter) => {
-      this.isLoading = true;
-      this.countries = [];
-      this.countriesService.getByContinent(filter).subscribe(
-        (countries) => {
-          this.isLoading = false;
-          this.countries = countries;
-          this.isError = false;
-        },
-        (error) => {
-          this.showError(error);
-        }
-      );
-    });
   }
 
   showError(error: Error) {

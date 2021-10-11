@@ -4,7 +4,6 @@ import { Subject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class CountriesService {
-  filter = new Subject<string>();
 
   constructor(private http: HttpClient) {}
 

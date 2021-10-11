@@ -12,15 +12,15 @@ export class MainComponent implements OnInit {
   faMoon = faMoon;
   faCaretSquareDown = faCaretSquareDown;
 
+  searchText = '';
+
   isLoading = true;
 
   dropDown = false;
-  currentFilter: string = '';
+  selectedRegion: string = '';
   filterOptions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
-  constructor(
-    private countriesService: CountriesService,
-  ) {}
+  constructor(private countriesService: CountriesService) {}
 
   ngOnInit(): void {}
 
@@ -30,8 +30,7 @@ export class MainComponent implements OnInit {
 
   onFilter(option: string) {
     this.toggleDropDown();
-    this.currentFilter = option;
-    this.countriesService.filter.next(option);
+    this.selectedRegion = option; // sends selected region to child component
 
     // failed attempt to implement routing, cannot access route params from countries.component.ts
     // this.router.navigate(['/countries/' + option]);

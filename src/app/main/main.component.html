@@ -1,11 +1,15 @@
 <div class="actions">
-  <form class="search">
+  <div class="search">
     <img src="../assets/icons/search-solid.svg" alt="Search" class="icon" />
-    <input type="text" placeholder="Search for a country..." />
-  </form>
+    <input
+      type="text"
+      placeholder="Search for a country..."
+      [(ngModel)]="searchText"
+    />
+  </div>
   <div class="dropdown">
     <div class="dropdown__placeholder" (click)="toggleDropDown()">
-      <p>{{ currentFilter === "" ? "Filter by Region" : currentFilter }}</p>
+      <p>{{ selectedRegion === "" ? "Filter by Region" : selectedRegion }}</p>
       <fa-icon [icon]="faCaretSquareDown"></fa-icon>
     </div>
     <div *ngIf="dropDown" class="dropdown__options">
@@ -16,4 +20,4 @@
   </div>
 </div>
 
-<app-countries></app-countries>
+<app-countries [searchText]="searchText" [selectedRegion]="selectedRegion" ></app-countries>
