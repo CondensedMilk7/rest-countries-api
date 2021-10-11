@@ -11,4 +11,4 @@ Styles: SCSS
 
 Routing, Error Handling, Live Search Filter, Responsive Design, Color Theme Switch.
 
-[Live Preview](#)
+[Live Preview](https://jovial-wright-ccee19.netlify.app)
